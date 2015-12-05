@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+    <html lang="fr">
+        <head>
+            <meta charset="utf-8" />
+            <title>Mon CV</title>
+            <link type="text/css" rel="stylesheet" href="CSS/stylesheet.css" />
+		    <link type="text/css" rel="stylesheet" href="CSS/bootstrap.min.css"/>
+            
+            <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+            <script type="text/javascript" src="JS/jquery.easing.min.js"></script> <!--lien vers le fichier jquery pour l'effet "hover"-->
+            <script type="text/javascript" src="JS/jquery.mixitup.min.js"></script> <!--lien vers fichier JQuery pour l'effet filtre-->
+            
+            
+            <script type="text/javascript">
+    $(function () {
+        
+        var filterList = {
+        
+            init: function () {
+            
+                // Plugin Mixitup, qui permet de filtrer les vignettes par catégorie
+                $('#portfoliolist').mixitup({
+                    targetSelector: '.portfolio',
+                    filterSelector: '.filter',
+                    effects: ['fade'],
+                    easing: 'snap',
+                    // call the hover effect
+                    onMixEnd: filterList.hoverEffect()
+                });             
+            
+            },
+            
+            hoverEffect: function () {
+            
+                // Fonction pour l'effet "hover"
+                $('#portfoliolist .portfolio').hover(
+                    function () {
+                        $(this).find('.label').stop().animate({bottom: 0}, 200, 'easeOutQuad');
+                        $(this).find('img').stop().animate({top: -30}, 500, 'easeOutQuad');             
+                    },
+                    function () {
+                        $(this).find('.label').stop().animate({bottom: -40}, 200, 'easeInQuad');
+                        $(this).find('img').stop().animate({top: 0}, 300, 'easeOutQuad');                               
+                    }       
+                );              
+            
+            }
+        };
+        
+        // Lance les deux fonctions "hover" et "filtre"
+        filterList.init();
+        
+        
+    }); 
+    </script>
+        </head>
+        <body>
+            
+            
+            <header>
+                
+                <div class="container">
+						<div class="row">
+						    
+							<div class="col-md-12">
+							    
+                                <img src="Images/Sophie miniature.jpg" class="img-circle">
+                                <h1>Lemaire Sophie</h1>
+                                <p>En pleine Formation pour faire Developpeur Informatique</p>
+                            </div>
+                        </div>
+                </div>
+                
+            </header>
+            
+            <main>
+                
+                 <div class="container">
+                    <div class="row">
+                        
+                        <div class="col-md-4">
+               
+                                    <h2>Parcours avant la formation Simplonline</h2>
+                                    <ul>
+            				            <li><strong>De 1989 à 1990 :</strong>stage en maison de retraite</li>
+            			    	        <li><strong>De 1991 à 1992 :</strong>stage en banque</li>
+            				            <li><strong>De 1995 à 1995 :</strong>formation en Grêta</li>
+            				            <li><strong>De 2006 à 2007 :</strong>Secrétaire polyvalente en portage salarial</li>
+            				            <li><strong>De 2012 à aujourd'hui :</strong>Enquêtrice mystère pour plusieurs entreprises</li>
+            				            <li><strong>De 2015 à 2016:</strong>Formation avec les codeurs indriens</li>
+            		   	            </ul>
+                              
+                        </div>
+                        
+                       	<div class="col-md-4">
+                       	     
+                                    <h2>Mes compétences</h2>
+                                    
+                		            	<ul>
+                			            	<li>Rédaction de courrier(devis,factures,paies...)</li>
+                			            	<li>Me servir de Word et Excel</li>
+                			            	<li>PHP, RUBY, HTML5 et CSS3 (certificat OpenClassroom), JAVASCRIPT</li>
+                			            </ul>
+            			    
+            		    </div> 
+            		    
+                        <div class="col-md-4">
+                                    
+            			            <h2>Mes formations</h2>
+            			            
+                		            	<ul>
+                				            <li>Niveau CAP ETC</li>
+                			            	<li>CAP Comptabilité</li>
+                			            	<li>Niveau BEP Comptabilité</li>
+                				            <li>Formation avec Simplonline, Openclassroom et Codecademy</li>
+                			            </ul>
+            		            
+                        </div>
+                    </div>    
+		        </div>
+    		    <div class="container">
+    
+                    <h2>Mon portfolio</h2>
+                        <!--data-filter permet de filtrer les vignettes par catégorie-->
+                        <ul id="filters" class="clearfix row">
+                            <li><span class="filter active" data-filter="cat1 cat2 cat3 cat4 cat5 cat6">Toutes mes catégories</span></li>
+                            <li><span class="filter" data-filter="cat1">HTML/CSS</span></li>
+                            <li><span class="filter" data-filter="cat2">Javascript</span></li>
+                            <li><span class="filter" data-filter="cat3">Bootstrap</span></li>
+                            <li><span class="filter" data-filter="cat4">Ruby</span></li>
+                            <li><span class="filter" data-filter="cat5">Formation</span></li>
+                            <li><span class="filter" data-filter="cat6">En cours</span></li>
+                        </ul>
+                        <div id="portfoliolist"> <!--La div qui contient les vignettes des projets-->
+                
+                                     <div id="portfoliolist"> <!--La div qui contient les vignettes des projets-->
+                                     <div class="portfolio cat1" data-cat="cat1">
+                                        <div class="portfolio-wrapper">             
+                                            <img src="Images/portfolios/html,css/html et css.jpg" alt="" />
+                                            <div class="label">
+                                                <div class="label-text">
+                                                    <a class="text-title">logo</a>
+                                                    <span class="text-category">HTML/CSS</span>
+                                                </div>
+                                                <div class="label-bg"></div>
+                                            </div>
+                                        </div>
+                                    </div>   
+                                    <div class="portfolio cat2" data-cat="cat2">
+                                        <div class="portfolio-wrapper">             
+                                            <img src="Images/portfolios/javascript/js.jpg" alt="" />
+                                            <div class="label">
+                                                <div class="label-text">
+                                                    <a class="text-title">logo</a>
+                                                    <span class="text-category">Javascript</span>
+                                                </div>
+                                                <div class="label-bg"></div>
+                                            </div>
+                                        </div>
+                                    </div>              
+                    
+                                    <div class="portfolio cat3" data-cat="cat3">
+                                        <div class="portfolio-wrapper">         
+                                            <img src="Images/portfolios/bootstrap/bootstrap.jpg" alt="" />
+                                            <div class="label">
+                                                <div class="label-text">
+                                                    <a class="text-title">logo</a>
+                                                    <span class="text-category">Bootstrap</span>
+                                                </div>
+                                                <div class="label-bg"></div>
+                                            </div>
+                                        </div>
+                                    </div>      
+                                                
+                                    <div class="portfolio cat3" data-cat="cat3">
+                                        <div class="portfolio-wrapper">         
+                                            <img src="Images/portfolios/bootstrap/maquette.jpg" alt="" />
+                                            <div class="label">
+                                                <div class="label-text">
+                                                    <a class="text-title">maquette</a>
+                                                    <span class="text-category">Bootstrap</span>
+                                                </div>
+                                                <div class="label-bg"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="portfolio cat4" data-cat="cat4">
+                                        <div class="portfolio-wrapper">         
+                                            <img src="Images/portfolios/Ruby/ruby.png" alt="" />
+                                            <div class="label">
+                                                <div class="label-text">
+                                                    <a class="text-title">logo</a>
+                                                    <span class="text-category">Ruby</span>
+                                                </div>
+                                                <div class="label-bg"></div>
+                                            </div>
+                                        </div>
+                                    </div>  
+                                    
+                                    <div class="portfolio cat4" data-cat="cat4">
+                                        <div class="portfolio-wrapper">         
+                                            <img src="Images/portfolios/Ruby/open food fact.png" alt="" />
+                                            <div class="label">
+                                                <div class="label-text">
+                                                    <a class="text-title">API Open Food Facts</a>
+                                                    <span class="text-category">Ruby</span>
+                                                </div>
+                                                <div class="label-bg"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="portfolio cat5" data-cat="cat5">
+                                        <div class="portfolio-wrapper">         
+                                            <img src="Images/portfolios/formation/certificat1.jpg" alt="" />
+                                            <div class="label">
+                                                <div class="label-text">
+                                                    <a class="text-title">certificat</a>
+                                                    <span class="text-category">Formation</span>
+                                                </div>
+                                                <div class="label-bg"></div>
+                                            </div>
+                                        </div>
+                                    </div>  
+                  
+                                    <div class="portfolio cat5" data-cat="cat5">
+                                        <div class="portfolio-wrapper">         
+                                            <img src="Images/portfolios/formation/certificat2.jpg" alt="" />
+                                            <div class="label">
+                                                <div class="label-text">
+                                                    <a class="text-title">certificat</a>
+                                                    <span class="text-category">Formation</span>
+                                                </div>
+                                                <div class="label-bg"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="portfolio cat5" data-cat="cat5">
+                                        <div class="portfolio-wrapper">         
+                                            <img src="Images/portfolios/formation/cloud9.jpg" alt="" />
+                                            <div class="label">
+                                                <div class="label-text">
+                                                    <a class="text-title">en tête</a>
+                                                    <span class="text-category">Formation</span>
+                                                </div>
+                                                <div class="label-bg"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="portfolio cat5" data-cat="cat5">
+                                        <div class="portfolio-wrapper">         
+                                            <img src="Images/portfolios/formation/github.jpg" alt="" />
+                                            <div class="label">
+                                                <div class="label-text">
+                                                    <a class="text-title">en tête</a>
+                                                    <span class="text-category">Formation</span>
+                                                </div>
+                                                <div class="label-bg"></div>
+                                            </div>
+                                        </div>
+                                    </div>  
+                  
+                                    <div class="portfolio cat5" data-cat="cat5">
+                                        <div class="portfolio-wrapper">         
+                                            <img src="Images/portfolios/formation/openclassroom.jpg" alt="" />
+                                            <div class="label">
+                                                <div class="label-text">
+                                                    <a class="text-title">en tête</a>
+                                                    <span class="text-category">Formation</span>
+                                                </div>
+                                                <div class="label-bg"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="portfolio cat5" data-cat="cat5">
+                                        <div class="portfolio-wrapper">         
+                                            <img src="Images/portfolios/formation/simplon.jpg" alt="" />
+                                            <div class="label">
+                                                <div class="label-text">
+                                                    <a class="text-title">en tête</a>
+                                                    <span class="text-category">Formation</span>
+                                                </div>
+                                                <div class="label-bg"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="portfolio cat6" data-cat="cat6">
+                                        <div class="portfolio-wrapper">         
+                                            <img src="Images/portfolios/en cours/annuaire.png" alt="" />
+                                            <div class="label">
+                                                <div class="label-text">
+                                                    <a class="text-title">annuaire</a>
+                                                    <span class="text-category">En cours</span>
+                                                </div>
+                                                <div class="label-bg"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="portfolio cat6" data-cat="cat6">
+                                        <div class="portfolio-wrapper">         
+                                            <img src="Images/portfolios/en cours/cookies.png" alt="" />
+                                            <div class="label">
+                                                <div class="label-text">
+                                                    <a class="text-title">jeu</a>
+                                                    <span class="text-category">En cours</span>
+                                                </div>
+                                                <div class="label-bg"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="portfolio cat6" data-cat="cat6">
+                                        <div class="portfolio-wrapper">         
+                                            <img src="Images/portfolios/en cours/jeu.png" alt="" />
+                                            <div class="label">
+                                                <div class="label-text">
+                                                    <a class="text-title">jeu</a>
+                                                    <span class="text-category">En cours</span>
+                                                </div>
+                                                <div class="label-bg"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                   
+                </div><!-- container -->
+
+            </main>
+            
+            <footer>
+                
+                <div class="container"> 
+					<div class="row">
+                        <div class="col-md-6">
+                            
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2741.7848814138206!2d1.5290005151489168!3d46.59148986553777!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47fb96addd95549f%3A0xf1f711cb014177a6!2s12+Rue+Claude+Bernard%2C+36200+Argenton-sur-Creuse!5e0!3m2!1sfr!2sfr!4v1448303607271" width="50%" frameborder="0" style="border:0" allowfullscreen></iframe> 
+                    
+                        </div>
+                        
+                        <div class="col-md-6">
+                                               
+                                <h3>Mes coordonnées :</h3>
+                                
+                                    <p>Tél : 06-26-09-61-03 / 09-84-32-25-98</p>
+                                    <p>E-mail : sophielemaire361@gmail.com</p>
+                                
+                        </div>  
+                    </div>
+                </div>        
+                <div class="container"> 
+					<div class="row">
+                        <div class="col-md-12">
+                                    
+                            <form method="post" action="traitement.php">
+ 
+                              <fieldset>
+                                   <legend class="legend">Vos coordonnées</legend> <!-- Titre du fieldset --> 
+                            
+                                   <label for="nom">Vos nom et prénom</label>
+                                    <input type="text" name="nom" id="nom" />
+                             
+                                   <label for="email">Votre e-mail</label>
+                                   <input type="email" name="email" id="email" />
+                            
+                               </fieldset>
+                             
+                               <fieldset>
+                                   <legend>Votre message</legend> <!-- Titre du fieldset -->
+                             
+                                   <p>
+                                       <label for="precisions">Veuillez me laisser votre message :</label>
+                                       <textarea name="precisions" id="precisions" cols="40" rows="4"></textarea>
+                                   </p>
+                               </fieldset>
+                            </form>
+                        
+                        </div>  
+                    </div>
+                </div>   
+                
+            </footer>
+        </body>
+        
+    </html>
